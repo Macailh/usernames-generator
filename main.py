@@ -3,6 +3,16 @@ import string
 
 
 def generate_username(length):
+    """
+    Generates a random username of the specified length.
+
+    Args:
+        length (int): The desired length of the username.
+
+    Returns:
+        str: The randomly generated username.
+
+    """
     consonants = ''.join(random.choice(string.ascii_lowercase)
                          for _ in range(length // 2))
     vowels = ''.join(random.choice('aeiou')
@@ -12,6 +22,6 @@ def generate_username(length):
     return username
 
 
-username_length = 8
-generated_username = generate_username(username_length)
-print("Generated username:", generated_username)
+USERNAME_LENGTH = 8
+GENERATED_USERNAME = generate_username(USERNAME_LENGTH)
+print("Generated username:", GENERATED_USERNAME)
