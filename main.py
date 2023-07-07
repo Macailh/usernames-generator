@@ -1,5 +1,6 @@
 import random
 import string
+import typer
 
 
 def generate_username(length):
@@ -22,6 +23,14 @@ def generate_username(length):
     return username
 
 
-USERNAME_LENGTH = 8
-GENERATED_USERNAME = generate_username(USERNAME_LENGTH)
-print("Generated username:", GENERATED_USERNAME)
+app = typer.Typer()
+
+
+@app.command()
+def generate(length: int):
+    GENERATED_USERNAME = generate_username(length)
+    typer.echo(f"Generated username: {GENERATED_USERNAME}")
+
+
+if __name__ == "__main__":
+    app()
