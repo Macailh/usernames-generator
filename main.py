@@ -3,7 +3,11 @@ import string
 import typer
 
 
-def generate_username(length):
+app = typer.Typer()
+
+
+@app.command()
+def generate_username(length: int):
     """
     Generates a random username of the specified length.
 
@@ -20,16 +24,7 @@ def generate_username(length):
                      for _ in range(length - (length // 2)))
     username = ''.join(random.choice(consonants + vowels)
                        for _ in range(length))
-    return username
-
-
-app = typer.Typer()
-
-
-@app.command()
-def generate(length: int):
-    GENERATED_USERNAME = generate_username(length)
-    typer.echo(f"Generated username: {GENERATED_USERNAME}")
+    typer.echo(f"Generated username: {username}")
 
 
 if __name__ == "__main__":
